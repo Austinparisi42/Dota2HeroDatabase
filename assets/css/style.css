@@ -1,0 +1,105 @@
+html{
+	background: url(https://j.gifs.com/58Jvgx.gif) center center fixed;
+	background-size: cover;
+}
+
+.headerColumn {
+	text-align: center;
+	opacity: .9;
+	font-family: KoreanFont,georgia,serif;
+	color:#c4c0c0;
+	font-size:40px;
+	background: #0F0303;
+
+}
+
+
+.columns{
+	text-align: center;
+	color: white;
+	opacity: .9;
+}
+
+p{
+	background: #0F0303;
+}
+
+.item {
+	border: solid 2px transparent;
+}
+
+.item:hover {
+	border-color: red;
+}
+
+
+
+
+
+#strength{
+	font-family: KoreanFont,georgia,serif;
+	color:#c4c0c0;
+	font-size:24px;
+}
+
+#agility{
+	font-family: KoreanFont,georgia,serif;
+	color:#c4c0c0;
+	font-size:24px;
+}
+
+#intelligence{
+	font-family: KoreanFont,georgia,serif;
+	color:#c4c0c0;
+	font-size:24px;
+}
+
+#str-div img, #agi-div img, #int-div img{
+	float: left;
+	margin: 5px;
+
+}
+
+#footer{
+    position:absolute;
+    bottom:0px;
+    width:100%;
+    background: #0F0303;
+    padding: 24px;
+    font-size: 12px;
+    color: #CCC;
+    text-align: center;
+}
+
+#name, #image, #stats, #youtube{
+	float: left;
+}
+
+#name{
+	margin-left: 60px;
+	font-family: KoreanFont,georgia,serif;
+	color:#c4c0c0;
+	font-size:35px;
+	
+}
+
+
+
+
+
+#image{
+	margin-left: 60px;
+
+}
+
+#stats{
+	margin-left: 60px;
+	font-family: KoreanFont,georgia,serif;
+	color:#c4c0c0;
+	font-size:20px;
+	background: #0F0303;
+	padding:20px;
+
+
+
+}
