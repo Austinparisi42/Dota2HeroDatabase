@@ -1,6 +1,6 @@
 var dotaURL = "https://api.opendota.com/api/heroStats";
-var queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=" + q +
-" " + "dota" + "&key=AIzaSyDJxAZT-3prr7wcDfJdBdU_Axx1iShsAcg";
+// var queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=" + q +
+// " " + "dota" + "&key=AIzaSyDJxAZT-3prr7wcDfJdBdU_Axx1iShsAcg";
 var stats;
 var searchResponse = "";
 
@@ -12,10 +12,10 @@ $.when(
 
        })
       
-      ,$.ajax({
-          url: queryURL,
-          method: "GET"
-        })
+      // ,$.ajax({
+      //     url: queryURL,
+      //     method: "GET"
+      //   })
       
         
     ).then(function (response) {
@@ -80,7 +80,7 @@ $.when(
         $("#roles").empty();
         var heroIndex = $(this).attr("data-index");
         var heroStats = stats[heroIndex]
-        roles.append(heroStats.roles);
+        roles.append("Roles: " + heroStats.roles);
         $("#roles").append(roles);
 
 
@@ -88,28 +88,28 @@ $.when(
         $("#base-health").empty();
         var heroIndex = $(this).attr("data-index");
         var heroStats = stats[heroIndex]
-        baseHealth.append(heroStats.base_health);
+        baseHealth.append("Base Health: " + heroStats.base_health);
         $("#base-health").append(baseHealth);
 
         var baseStr = $("#base-str");
         $("#base-str").empty();
         var heroIndex = $(this).attr("data-index");
         var heroStats = stats[heroIndex]
-        baseStr.append(heroStats.base_str);
+        baseStr.append("Base Strength: " + heroStats.base_str);
         $("#base-str").append(baseStr);
 
         var baseAgi = $("#base-agi");
         $("#base-agi").empty();
         var heroIndex = $(this).attr("data-index");
         var heroStats = stats[heroIndex]
-        baseAgi.append(heroStats.base_agi);
+        baseAgi.append("Base Agility: " + heroStats.base_agi);
         $("#base-agi").append(baseAgi);
 
         var baseInt = $("#base-int");
         $("#base-int").empty();
         var heroIndex = $(this).attr("data-index");
         var heroStats = stats[heroIndex]
-        baseInt.append(heroStats.base_int);
+        baseInt.append("Base Intellect: " + heroStats.base_int);
         $("#base-int").append(baseInt);
     
     var heroYoutubeDiv = $("#youtube");
