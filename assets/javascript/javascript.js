@@ -1,12 +1,34 @@
-var dotaURL = "https://api.opendota.com/api/heroStats"
+var dotaURL = "https://api.opendota.com/api/heroStats";
+var queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=" + q +
+" " + "dota" + "&key=AIzaSyDJxAZT-3prr7wcDfJdBdU_Axx1iShsAcg";
 var stats;
+var searchResponse = "";
 
-$.ajax({
-  url: dotaURL,
-  method: "GET"
-}).done(function (response) {
-    stats=response;
-  console.log(response);
+
+$.when(
+       $.ajax({
+        url: dotaURL,
+        method: "GET"
+
+       })
+      
+      ,$.ajax({
+          url: queryURL,
+          method: "GET"
+        })
+      
+        
+    ).then(function (response) {
+          stats=response;
+          console.log(response);
+         
+          (function (response) {
+          console.log(response);
+          searchResponse=result;
+          }); 
+
+
+
   for (var i = 0; i < response.length; i++) {
 
    if (response[i].primary_attr === "str") {
@@ -58,7 +80,7 @@ $.ajax({
         $("#roles").empty();
         var heroIndex = $(this).attr("data-index");
         var heroStats = stats[heroIndex]
-        roles.append("Roles: " + heroStats.roles);
+        roles.append(heroStats.roles);
         $("#roles").append(roles);
 
 
@@ -66,60 +88,54 @@ $.ajax({
         $("#base-health").empty();
         var heroIndex = $(this).attr("data-index");
         var heroStats = stats[heroIndex]
-        baseHealth.append("Base Health: " + heroStats.base_health);
+        baseHealth.append(heroStats.base_health);
         $("#base-health").append(baseHealth);
 
         var baseStr = $("#base-str");
         $("#base-str").empty();
         var heroIndex = $(this).attr("data-index");
         var heroStats = stats[heroIndex]
-        baseStr.append("Base Strength: " + heroStats.base_str);
+        baseStr.append(heroStats.base_str);
         $("#base-str").append(baseStr);
 
         var baseAgi = $("#base-agi");
         $("#base-agi").empty();
         var heroIndex = $(this).attr("data-index");
         var heroStats = stats[heroIndex]
-        baseAgi.append("Base Agility: " + heroStats.base_agi);
+        baseAgi.append(heroStats.base_agi);
         $("#base-agi").append(baseAgi);
 
         var baseInt = $("#base-int");
         $("#base-int").empty();
         var heroIndex = $(this).attr("data-index");
         var heroStats = stats[heroIndex]
-        baseInt.append("Base Intellect: " + heroStats.base_int);
+        baseInt.append(heroStats.base_int);
         $("#base-int").append(baseInt);
     
     var heroYoutubeDiv = $("#youtube");
-    var heroVideo = $("<iframe>");
+    console.log("id", searchResponse);
+    var heroVideo = $("<iframe>", "src", "https://www.youtube.com/watch?v="+searchResponse.object.id.videoId);
     heroYoutubeDiv.append(heroVideo);
     $("#youtube").append(heroYoutubeDiv);
 
-   search(this);
+   search(this); 
   });
 
-
-
-
- function handleAPILoaded() {
+  function handleAPILoaded() {
     var API = "AIzaSyDJxAZT-3prr7wcDfJdBdU_Axx1iShsAcg";
     gapi.client.setApiKey(API);
     gapi.client.load('youtube', 'v3');
   };
 
- function search(item) { 
-    console.log("searching now"); 
-    console.log(item); 
-    var q = $(item).data('name'); 
-    console.log("Q = " + q); 
-    var queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=" + q +
-      " " + "dota" + "&key=AIzaSyDJxAZT-3prr7wcDfJdBdU_Axx1iShsAcg"
-    $.ajax({
-        url: queryURL,
-        method: "GET"
-      })
-      .done(function (response) {
-        console.log(response);
-      })
+
+ function search(item) { //gage (passing "item, not this remember THIS is a reserved word")
+    console.log("searching now"); //gage
+    console.log(item); //gage (item techncially is "this" here)
+    var q = $(item).data('name'); //gage you ONLY need .data then the data element. compare with what you had before
+    console.log("Q = " + q); //gage
+    //gage below here i made "dota" a string
+    
+
+     
   };
 });
