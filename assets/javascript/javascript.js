@@ -1,24 +1,14 @@
 var dotaURL = "https://api.opendota.com/api/heroStats";
-// var queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=" + q +
-// " " + "dota" + "&key=AIzaSyDJxAZT-3prr7wcDfJdBdU_Axx1iShsAcg";
 var stats;
 var searchResponse = "";
 
 
-$.when(
-       $.ajax({
-        url: dotaURL,
-        method: "GET"
 
-       })
-      
-      // ,$.ajax({
-      //     url: queryURL,
-      //     method: "GET"
-      //   })
-      
-        
-    ).then(function (response) {
+$.ajax({
+  url: dotaURL,
+  method: "GET"
+})
+.done(function (response) {
           stats=response;
           console.log(response);
          
@@ -112,13 +102,9 @@ $.when(
         baseInt.append("Base Intellect: " + heroStats.base_int);
         $("#base-int").append(baseInt);
     
-    var heroYoutubeDiv = $("#youtube");
-    console.log("id", searchResponse);
-    var heroVideo = $("<iframe>", "src", "https://www.youtube.com/watch?v="+searchResponse.object.id.videoId);
-    heroYoutubeDiv.append(heroVideo);
-    $("#youtube").append(heroYoutubeDiv);
+   
 
-   search(this); 
+   search(heroName); 
   });
 
   function handleAPILoaded() {
@@ -128,14 +114,26 @@ $.when(
   };
 
 
- function search(item) { //gage (passing "item, not this remember THIS is a reserved word")
+ function search(heroName) { //gage (passing "item, not this remember THIS is a reserved word")
     console.log("searching now"); //gage
-    console.log(item); //gage (item techncially is "this" here)
-    var q = $(item).data('name'); //gage you ONLY need .data then the data element. compare with what you had before
-    console.log("Q = " + q); //gage
-    //gage below here i made "dota" a string
+    console.log("Q = " + heroName); //gage
     
-
-     
-  };
+    
+    var queryURL = "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=25&q=" + heroName +
+    " " + "dota" + "&key=AIzaSyDJxAZT-3prr7wcDfJdBdU_Axx1iShsAcg";
+    //gage below here i made "dota" a string
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    })
+    .done(function (response) {
+      console.log(response);
+      searchResponse=response;
+      var heroYoutubeDiv = $("#youtube");
+      console.log("id", searchResponse);
+      var heroVideo = $("<iframe>").attr("src", "https://www.youtube.com/watch?v="+searchResponse.items[0].id.videoId);
+      heroYoutubeDiv.append(heroVideo);
+      $("#youtube").append(heroYoutubeDiv);
+    });
+  }
 });
