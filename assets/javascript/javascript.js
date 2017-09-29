@@ -4,6 +4,7 @@ var searchResponse = "";
 
 
 
+
 $.ajax({
   url: dotaURL,
   method: "GET"
@@ -136,4 +137,13 @@ $.ajax({
       $("#youtube").append(heroYoutubeDiv);
     });
   }
+
+function userValidation(userRank) {
+  var userRank = "https://api.opendota.com/api/players/"; 
+  // add account id to end
+  $.ajax({
+    url: userRank,
+    method: "GET"
+  })
+}
 });
