@@ -1,55 +1,67 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head>
+
+<head>
     <meta charset="UTF-8">
-  <title>Dota 2</title>
-  <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.min.css">
-  </head>
+    <title>Dota 2</title>
+    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="assets//imagesfavicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.3/css/bulma.min.css">
+</head>
+
 <body>
-  <div class="headerColumn">
-    <div class="headerImg"><img src="https://github.com/Austinparisi42/Project-1/blob/master/assets/images/emblem.jpg?raw=true" height="70" width="70"></div>
-    <div id="headerTitle">
-    Dota 2 Hero Database
+    <div class="headerColumn">
+        <div class="headerImg"><img src="https://github.com/Austinparisi42/Project-1/blob/master/assets/images/emblem.jpg?raw=true" height="70" width="70"></div>
+        <div id="headerTitle">
+            Dota 2 Hero Database
+        </div>
     </div>
-  </div>
-  <div class="columns" >
-    <div class="column">
-      <p id="strength"><img src="https://github.com/Austinparisi42/Project-1/blob/master/assets/images/str.png?raw=true" height="35" width="35">   Strength</p>
-      <div id="str-div"></div>
+    <div class="columns">
+        <div class="column">
+            <p id="strength"><img src="https://github.com/Austinparisi42/Project-1/blob/master/assets/images/str.png?raw=true" height="35" width="35"> Strength</p>
+            <div id="str-div"></div>
+        </div>
+        <div class="column">
+            <p id="agility"><img src="https://github.com/Austinparisi42/Project-1/blob/master/assets/images/agi.png?raw=true" height="35" width="35"> Agility</p>
+            <div id="agi-div"></div>
+        </div>
+        <div class="column">
+            <p id="intelligence"><img src="https://github.com/Austinparisi42/Project-1/blob/master/assets/images/int.png?raw=true" height="35" width="35"> Intelligence</p>
+            <div id="int-div"></div>
+        </div>
     </div>
-    <div class="column">
-      <p id="agility"><img src="https://github.com/Austinparisi42/Project-1/blob/master/assets/images/agi.png?raw=true" height="35" width="35">   Agility</p>
-      <div id="agi-div"></div>
+    <div id="heroBioDiv">
+        <div class="nameDiv">
+            <div id="name"></div>
+        </div>
+        <div id="image"></div>
+        <div id="stats">
+            <div id="roles"></div>
+            <div id="base-health"></div>
+            <div id="base-str"></div>
+            <div id="base-agi"></div>
+            <div id="base-int"></div>
+        </div>
+        <div id="youtube"></div>        
     </div>
-    <div class="column">
-      <p id="intelligence"><img src="https://github.com/Austinparisi42/Project-1/blob/master/assets/images/int.png?raw=true" height="35" width="35">   Intelligence</p>
-      <div id="int-div"></div>
+    <!-- <div class="userMMR">
+            <div id="userInputForm">
+              <div id="userInputTitle">Search your estimated MMR</div>
+                <form onsubmit="return userRank();">
+                    Account ID:
+                    <br>
+                    <input type="text">
+                    <br>
+                    <input type="submit" value="Submit">
+                </form>
+            </div>
+            <div id="showUserMMR"></div>
+        </div> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="assets/javascript/javascript.js"></script>
+    <div id="footer">
     </div>
-  </div>
-  
-  <div id="heroBioDiv">
-    <div class="nameDiv">
-      <div id="name"></div>
-    </div>
-    <div id="image"></div> 
-    <div id="stats">
-      <div id="roles"></div>
-      <div id="base-health"></div>
-      <div id="base-str"></div>
-      <div id="base-agi"></div>
-      <div id="base-int"></div>
-    </div>
-    <div id="youtube"></div>
-  </div>
-
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="assets/javascript/javascript.js"></script>
-
-<div id="footer">
-    
-    </div>
-
 </body>
+
 </html>

@@ -131,19 +131,21 @@ $.ajax({
       console.log(response);
       searchResponse=response;
       var heroYoutubeDiv = $("#youtube");
+      $("#youtube").empty();
       console.log("id", searchResponse);
-      var heroVideo = $("<iframe>").attr("src", "https://www.youtube.com/watch?v="+searchResponse.items[0].id.videoId);
+      var heroVideo = $("<iframe>").attr("src", "https://www.youtube.com/embed/"+searchResponse.items[0].id.videoId);
       heroYoutubeDiv.append(heroVideo);
       $("#youtube").append(heroYoutubeDiv);
     });
   }
 
-function userValidation(userRank) {
-  var userRank = "https://api.opendota.com/api/players/"; 
-  // add account id to end
-  $.ajax({
-    url: userRank,
-    method: "GET"
-  })
-}
+// function userRank() {
+//   var userInput = 
+//   var userRank = "https://api.opendota.com/api/players/" + userInput; 
+//   // add account id to end
+//   $.ajax({
+//     url: userRank,
+//     method: "GET"
+//   })
+// }
 });
